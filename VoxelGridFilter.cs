@@ -39,9 +39,9 @@ namespace VoxelGridFilter
 				float x = float.Parse (tokeny [0], ci);
 				float y = float.Parse (tokeny [1], ci);
 				float z = float.Parse (tokeny [2], ci);
-				float r = float.Parse (tokeny [3], ci);
-				float g = float.Parse (tokeny [4], ci);
-				float b = float.Parse (tokeny [5], ci);
+				int r = (int)(float.Parse (tokeny [3], ci) * 255);
+				int g = (int)(float.Parse (tokeny [4], ci) * 255);
+				int b = (int)(float.Parse (tokeny [5], ci) * 255);
 				ColorPoint3D bod = new ColorPoint3D (x, y, z, r, g, b);
 				vstup.Add (bod);
 			}
@@ -58,10 +58,10 @@ namespace VoxelGridFilter
 			writer.WriteLine ("COFF");
 			writer.WriteLine (vystup.Count + " 0 0");
 
-			CultureInfo ci = CultureInfo.InvariantCulture;
+			//CultureInfo ci = CultureInfo.InvariantCulture;
 
 			foreach (ColorPoint3D bod in vystup) {
-				writer.WriteLine (bod.getX.ToString (ci) + " " + bod.getY.ToString (ci) + " " + bod.getZ.ToString (ci) + " " + bod.getR.ToString (ci) + " " + bod.getG.ToString (ci) + " " + bod.getB.ToString (ci));
+				writer.WriteLine (bod.getX + " " + bod.getY + " " + bod.getZ + " " + bod.getR + " " + bod.getG + " " + bod.getB);
 			}
 
 			writer.Close ();
@@ -153,9 +153,9 @@ namespace VoxelGridFilter
 			float sumX = 0;
 			float sumY = 0;
 			float sumZ = 0;
-			float sumR = 0;
-			float sumG = 0;
-			float sumB = 0;
+			int sumR = 0;
+			int sumG = 0;
+			int sumB = 0;
 			int pocet = body.Count;
 
 			foreach (ColorPoint3D bod in body) {

@@ -12,11 +12,11 @@ namespace VoxelGridFilter
 		private readonly float x;
 		private readonly float y;
 		private readonly float z;
-		private readonly float r;
-		private readonly float g;
-		private readonly float b;
+		private readonly int r;
+		private readonly int g;
+		private readonly int b;
 
-		public ColorPoint3D (float x, float y, float z, float r, float g, float b)
+		public ColorPoint3D (float x, float y, float z, int r, int g, int b)
 		{
 			this.x = x;
 			this.y = y;
@@ -44,19 +44,19 @@ namespace VoxelGridFilter
 			}
 		}
 
-		public float getR {
+		public int getR {
 			get {
 				return this.r;
 			}
 		}
 
-		public float getG {
+		public int getG {
 			get {
 				return this.g;
 			}
 		}
 
-		public float getB {
+		public int getB {
 			get {
 				return this.b;
 			}
